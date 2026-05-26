@@ -1679,6 +1679,24 @@
         .page-break {
             page-break-before: always;
         }
+
+        /* ======================================================================
+           12a. MOBILE-ONLY PRINT OVERRIDES
+           ====================================================================== */
+        @media print and (max-width: 768px) {
+            @page {
+                size: A4 portrait;
+                margin: 15mm 12mm !important;
+            }
+            html, body {
+                width: 1024px !important; /* Forces the mobile browser to render the PDF in desktop scaling */
+                zoom: 0.75; /* Adjusts scale perfectly to fit A4 */
+            }
+            .resume-container, #resume, .portfolio-main {
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+            }
+        }
     </style>
 </head>
 
